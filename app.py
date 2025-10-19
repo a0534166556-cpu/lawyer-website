@@ -10,7 +10,7 @@ from datetime import datetime
 import sendgrid
 from sendgrid.helpers.mail import Mail, Email as SendGridEmail, To, Content
 from config import config
-from facebook_integration import get_facebook_posts, save_facebook_images
+# from facebook_integration import get_facebook_posts, save_facebook_images
 import mysql.connector
 from mysql.connector import Error
 import uuid
@@ -737,20 +737,31 @@ def blog_post(post_id):
 
 @app.route('/gallery')
 def gallery():
-    """Gallery page with Facebook images"""
+    """Gallery page with sample images"""
     try:
-        # Save Facebook images to gallery
-        gallery_images = save_facebook_images()
-        
-        # If no Facebook images, show placeholder
-        if not gallery_images:
-            gallery_images = [
-                {
-                    'filename': 'placeholder.jpg',
-                    'title': 'אין תמונות זמינות',
-                    'description': 'תמונות יופיעו כאן לאחר חיבור לפייסבוק'
-                }
-            ]
+        # Sample gallery images
+        gallery_images = [
+            {
+                'filename': 'placeholder.jpg',
+                'title': 'תמונה לדוגמה 1',
+                'description': 'תמונה זו נועדה להדגים את הגלריה'
+            },
+            {
+                'filename': 'placeholder.jpg',
+                'title': 'תמונה לדוגמה 2',
+                'description': 'תמונה נוספת להדגמה'
+            },
+            {
+                'filename': 'placeholder.jpg',
+                'title': 'תמונה לדוגמה 3',
+                'description': 'תמונה שלישית להדגמה'
+            },
+            {
+                'filename': 'placeholder.jpg',
+                'title': 'תמונה לדוגמה 4',
+                'description': 'תמונה רביעית להדגמה'
+            }
+        ]
         
         return render_template('gallery.html', gallery_images=gallery_images)
         
