@@ -10,7 +10,7 @@ from datetime import datetime
 import sendgrid
 from sendgrid.helpers.mail import Mail, Email as SendGridEmail, To, Content
 from config import config
-# from facebook_integration import get_facebook_posts
+from facebook_integration import get_facebook_posts, save_facebook_images
 import mysql.connector
 from mysql.connector import Error
 import uuid
@@ -734,6 +734,30 @@ def blog_post(post_id):
         return "מאמר לא נמצא", 404
     
     return render_template('blog_post.html', post=post)
+
+@app.route('/gallery')
+def gallery():
+    """Gallery page with Facebook images"""
+    try:
+        # Save Facebook images to gallery
+        gallery_images = save_facebook_images()
+        
+        # If no Facebook images, show placeholder
+        if not gallery_images:
+            gallery_images = [
+                {
+                    'filename': 'placeholder.jpg',
+                    'title': 'אין תמונות זמינות',
+                    'description': 'תמונות יופיעו כאן לאחר חיבור לפייסבוק'
+                }
+            ]
+        
+        return render_template('gallery.html', gallery_images=gallery_images)
+        
+    except Exception as e:
+        print(f"Error loading gallery: {e}")
+        # Return empty gallery on error
+        return render_template('gallery.html', gallery_images=[])
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
