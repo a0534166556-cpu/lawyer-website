@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="call-to-action">
+    <div class="container">
+        <div class="call-button-container">
+            <a href="tel:08-993-1666" class="call-button">
+                📞 תתקשרו אלינו: 08-993-1666
+            </a>
+            <a href="tel:0522919225" class="call-button emergency">
+                📱 למקרים דחופים: 052-291-9225
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-logo">
+            <img src="https://res.cloudinary.com/broadcust/image/upload/e_colorize,co_rgb:ffffff/resources/cfooter_hb2.png" alt="Broadcust Logo" class="side-logo">
+        </div>
+        <div class="hero-text">
+            <h1>משרד עו"ד ונוטריון יגאל סופר</h1>
+            <p>מתמחה בנזיקין, נזקי גוף, תאונות דרכים, ביטוח לאומי, מקרקעין ודיני עבודה</p>
+            <a href="{{ url_for('contact') }}" class="cta-button">קבל ייעוץ מקצועי</a>
+        </div>
+    </div>
+</section>
+
+<section class="about-preview">
+    <div class="container">
+        <h2>אודות המשרד</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://res.cloudinary.com/broadcust/image/upload/c_limit,w_1080,h_1080/v1679232772/production/users/24862/gallery/a7ced65c-8497-49d7-9e2a-060ebadb8ab0__160063.jpg" alt="עו״ד יגאל סופר" class="profile-image" style="display: block !important; width: 100% !important; height: 100% !important; object-fit: cover !important; border-radius: 50% !important; max-width: 100% !important; position: relative !important; z-index: 999 !important; background: transparent !important; opacity: 1 !important; visibility: visible !important; pointer-events: auto !important;">
+            </div>
+            <div class="about-text">
+                <p>משרד עו"ד ונוטריון יגאל סופר ממוקם בנתיבות ומתמחה במגוון רחב של תחומי משפט. המשרד מספק שירותים משפטיים מקיפים עם דגש מיוחד על נזיקין ונזקי גוף.</p>
+                <p>עו"ד יגאל סופר בעל ניסיון רב בייצוג נפגעי תאונות דרכים, תביעות נגד ביטוח לאומי וענייני מקרקעין ודיני עבודה. המשרד מחויב לספק ליווי אישי ומקצועי לכל לקוח.</p>
+                <a href="{{ url_for('about') }}" class="read-more-btn">קרא עוד עלינו</a>
+            </div>
+            <div class="about-stats">
+                <div class="stat">
+                    <h3>30+</h3>
+                    <p>שנות ניסיון</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services-preview">
+    <div class="container">
+        <h2>תחומי התמחות</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">⚖️</div>
+                <h3>נזיקין</h3>
+                <p>ייצוג בתביעות נזיקין, נזקי רכוש, רשלנות רפואית ופיצויים</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤕</div>
+                <h3>נזקי גוף</h3>
+                <p>ייצוג נפגעי תאונות עבודה, רשלנות ותביעות נזקי גוף</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚗</div>
+                <h3>תאונות דרכים</h3>
+                <p>ייצוג נפגעי תאונות דרכים וקבלת פיצויים מקסימליים מביטוח</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏛️</div>
+                <h3>ביטוח לאומי</h3>
+                <p>ייצוג בתביעות נכות, קצבאות, פנסיות ותביעות ביטוח לאומי</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>מקרקעין</h3>
+                <p>רכישת נדלן, חוזי שכירות, סכסוכי שכנים וענייני מקרקעין</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <h3>דיני עבודה</h3>
+                <p>פיטורין, זכויות עובדים, פנסיה, פיצויים וענייני עבודה</p>
+            </div>
+        </div>
+        <div class="services-more">
+            <a href="{{ url_for('services') }}" class="cta-button">צפה בכל השירותים</a>
+        </div>
+    </div>
+</section>
+
+<section class="blog-preview">
+    <div class="container">
+        <h2>פרסומים ומאמרים</h2>
+        <!-- Facebook Page Plugin -->
+        <div class="facebook-section" style="grid-column: 1 / -1; margin-bottom: 40px; background: #f8f9fa; padding: 30px; border-radius: 15px; text-align: center;">
+            <h3 style="margin-bottom: 20px; color: var(--primary-color); font-size: 1.5rem;">עקבו אחרינו בפייסבוק</h3>
+            <p style="margin-bottom: 20px; color: #666;">קבלו עדכונים שוטפים על מאמרים וחדשות משפטיות</p>
+            
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v18.0" nonce=""></script>
+            <div class="fb-page" 
+                 data-href="https://www.facebook.com/IgalSoferADV/" 
+                 data-tabs="timeline" 
+                 data-width="400" 
+                 data-height="400" 
+                 data-small-header="true" 
+                 data-adapt-container-width="true" 
+                 data-hide-cover="false" 
+                 data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/IgalSoferADV/" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/IgalSoferADV/">עו״ד ונוטריון יגאל סופר</a>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="blog-grid">
+            <a href="https://broadcust.co.il/deal/display/2674226" class="blog-card" target="_blank">
+                <div class="blog-image">
+                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2674226_5a0b11df-d529-4fe6-bb39-090351b805d1.jpg" alt="נפגעתם בעבודה" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important; opacity: 1 !important; visibility: visible !important; position: relative !important; z-index: 10 !important;">
+                </div>
+                <div class="blog-content">
+                    <h3>נפגעתם בעבודה? אתם לא לבד!</h3>
+                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
+                    <p class="blog-date">פורסם בתאריך: 22/01/2025 11:15</p>
+                </div>
+            </a>
+            
+            <a href="https://broadcust.co.il/deal/display/2744122" class="blog-card" target="_blank">
+                <div class="blog-image">
+                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2744122_1a3bef32-101b-42aa-989e-a4e978ffe8d6.jpg" alt="נזילה מהשכנים" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important; opacity: 1 !important; visibility: visible !important; position: relative !important; z-index: 10 !important;">
+                </div>
+                <div class="blog-content">
+                    <h3>למי פונים כשיש נזילה מהשכנים?</h3>
+                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
+                    <p class="blog-date">פורסם בתאריך: 28/01/2025 16:45</p>
+                </div>
+            </a>
+        </div>
+        
+        <div class="blog-cta">
+            <a href="{{ url_for('all_articles') }}" class="view-all-btn">לצפייה בכל הפרסומים</a>
+        </div>
+    </div>
+</section>
+
+<section class="contact-preview">
+    <div class="container">
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2>רוצה לקבל ייעוץ?</h2>
+                <p>אנו כאן לעזור לך בכל שאלה משפטית. צור איתנו קשר לקבלת ייעוץ ראשוני מקצועי.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <strong>טלפון:</strong>
+                        <span>08-993-1666</span>
+                    </div>
+                    <div class="contact-item">
+                        <strong>אימייל:</strong>
+                        <span>galsofer6@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <strong>כתובת:</strong>
+                        <span>בעלי המלאכה 205, נתיבות</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-preview">
+                <h3>שלח הודעה מהירה</h3>
+                
+                <!-- Flash messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="flash-message {{ category }}" style="background: {% if category == 'success' %}#d4edda; color: #155724; border: 1px solid #c3e6cb;{% else %}#f8d7da; color: #721c24; border: 1px solid #f5c6cb;{% endif %}; padding: 15px; margin-bottom: 20px; border-radius: 5px; text-align: center;">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                
+                <!-- General form validation error -->
+                {% if not quick_form.validate_on_submit() and request.method == 'POST' %}
+                    <div class="flash-message error" style="background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 15px; margin-bottom: 20px; border-radius: 5px; text-align: center;">
+                        ⚠️ יש למלא את כל השדות הדרושים בצורה נכונה
+                    </div>
+                {% endif %}
+                
+                <form method="POST" action="{{ url_for('index') }}">
+                    {{ quick_form.hidden_tag() }}
+                    <div class="form-group">
+                        {{ quick_form.name(class="form-control", placeholder="שם מלא") }}
+                        {% if quick_form.name.errors %}
+                            <div class="form-errors">
+                                {% for error in quick_form.name.errors %}
+                                    <span class="error">⚠️ {{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ quick_form.phone(class="form-control", placeholder="טלפון") }}
+                        {% if quick_form.phone.errors %}
+                            <div class="form-errors">
+                                {% for error in quick_form.phone.errors %}
+                                    <span class="error">⚠️ {{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ quick_form.email(class="form-control", placeholder="אימייל") }}
+                        {% if quick_form.email.errors %}
+                            <div class="form-errors">
+                                {% for error in quick_form.email.errors %}
+                                    <span class="error">⚠️ {{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ quick_form.service(class="form-control") }}
+                        {% if quick_form.service.errors %}
+                            <div class="form-errors">
+                                {% for error in quick_form.service.errors %}
+                                    <span class="error">⚠️ {{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ quick_form.message(class="form-control", placeholder="תיאור קצר של המקרה", rows=4) }}
+                        {% if quick_form.message.errors %}
+                            <div class="form-errors">
+                                {% for error in quick_form.message.errors %}
+                                    <span class="error">⚠️ {{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ quick_form.submit(class="btn-submit") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

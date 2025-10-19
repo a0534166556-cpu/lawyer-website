@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>גלריית תמונות</h1>
+        <p>תמונות מהפייסבוק - עדכונים שוטפים על פעילות המשרד</p>
+    </div>
+</section>
+
+<section class="gallery">
+    <div class="container">
+        <div class="gallery-header">
+            <h2>גלריית התמונות שלנו</h2>
+            <p>תמונות מהפייסבוק - פעילות המשרד, אירועים וחדשות</p>
+        </div>
+        
+        <!-- Facebook Photos Plugin -->
+        <div class="facebook-photos-section" style="grid-column: 1 / -1; margin-bottom: 40px; background: #f8f9fa; padding: 30px; border-radius: 15px; text-align: center;">
+            <h3 style="margin-bottom: 20px; color: var(--primary-color); font-size: 1.5rem;">תמונות מהפייסבוק</h3>
+            <p style="margin-bottom: 20px; color: #666;">גלריית תמונות מעודכנת מהעמוד שלנו בפייסבוק</p>
+            
+            <!-- Facebook Photos Plugin -->
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v18.0" nonce=""></script>
+            <div class="fb-page" 
+                 data-href="https://www.facebook.com/IgalSoferADV/" 
+                 data-tabs="photos" 
+                 data-width="800" 
+                 data-height="700" 
+                 data-small-header="false" 
+                 data-adapt-container-width="true" 
+                 data-hide-cover="false" 
+                 data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/IgalSoferADV/" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/IgalSoferADV/">עו״ד ונוטריון יגאל סופר</a>
+                </blockquote>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+.gallery {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.gallery-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.gallery-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 30px 20px 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.gallery-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .gallery-header h2 {
+        font-size: 2rem;
+    }
+    
+    .facebook-photos-section {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}

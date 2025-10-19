@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} - {{ super() }}{% endblock %}
+
+{% block content %}
+<section class="blog-post-hero">
+    <div class="container">
+        <div class="blog-post-header">
+            <div class="blog-post-image">
+                <img src="{{ post.image }}" alt="{{ post.title }}">
+            </div>
+            <div class="blog-post-info">
+                <h1>{{ post.title }}</h1>
+                <div class="blog-post-meta">
+                    <span class="author">{{ post.author }}</span>
+                    <span class="date">{{ post.date }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="blog-post-content">
+    <div class="container">
+        <div class="blog-post-body">
+            {{ post.content | safe }}
+        </div>
+        
+        <div class="blog-post-cta">
+            <h3>זקוקים לייעוץ משפטי?</h3>
+            <p>אם יש לכם שאלות או זקוקים לסיוע משפטי, אנו כאן לעזור לכם.</p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('contact') }}" class="btn btn-primary">צור קשר</a>
+                <a href="tel:08-993-1666" class="btn btn-secondary">התקשר עכשיו</a>
+            </div>
+        </div>
+        
+        <div class="blog-post-navigation">
+            <a href="{{ url_for('index') }}" class="back-to-blog">
+                <i class="fas fa-arrow-right"></i>
+                חזרה לדף הבית
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
