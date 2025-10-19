@@ -10,7 +10,7 @@ from datetime import datetime
 import sendgrid
 from sendgrid.helpers.mail import Mail, Email as SendGridEmail, To, Content
 from config import config
-from facebook_integration import get_facebook_posts
+# from facebook_integration import get_facebook_posts
 import mysql.connector
 from mysql.connector import Error
 import uuid
