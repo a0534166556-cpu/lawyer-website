@@ -734,38 +734,8 @@ def blog_post(post_id):
 
 @app.route('/gallery')
 def gallery():
-    """Gallery page with sample images"""
-    try:
-        # Sample gallery images
-        gallery_images = [
-            {
-                'filename': 'placeholder.jpg',
-                'title': 'תמונה לדוגמה 1',
-                'description': 'תמונה זו נועדה להדגים את הגלריה'
-            },
-            {
-                'filename': 'placeholder.jpg',
-                'title': 'תמונה לדוגמה 2',
-                'description': 'תמונה נוספת להדגמה'
-            },
-            {
-                'filename': 'placeholder.jpg',
-                'title': 'תמונה לדוגמה 3',
-                'description': 'תמונה שלישית להדגמה'
-            },
-            {
-                'filename': 'placeholder.jpg',
-                'title': 'תמונה לדוגמה 4',
-                'description': 'תמונה רביעית להדגמה'
-            }
-        ]
-        
-        return render_template('gallery.html', gallery_images=gallery_images)
-        
-    except Exception as e:
-        print(f"Error loading gallery: {e}")
-        # Return empty gallery on error
-        return render_template('gallery.html', gallery_images=[])
+    """Gallery page with Facebook embed"""
+    return render_template('gallery.html')
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
