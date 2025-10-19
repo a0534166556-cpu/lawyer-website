@@ -35,7 +35,11 @@
                     <div class="gallery-image">
                         <img src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg" 
                              alt="חג שמח מיגאל סופר" 
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                              onclick="openModal('https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg', 'חג שמח מיגאל סופר', 'ברכות לחג מהמשרד')">
+                        <div class="placeholder-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: none; align-items: center; justify-content: center; color: white; font-size: 3em;">
+                            🎉
+                        </div>
                     </div>
                     <div class="gallery-info">
                         <h3>חג שמח מיגאל סופר</h3>
@@ -47,7 +51,11 @@
                     <div class="gallery-image">
                         <img src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg" 
                              alt="משרד עו״ד ונוטריון יגאל סופר" 
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                              onclick="openModal('https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg', 'משרד עו״ד ונוטריון יגאל סופר', 'תמונה מהמשרד')">
+                        <div class="placeholder-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: none; align-items: center; justify-content: center; color: white; font-size: 3em;">
+                            ⚖️
+                        </div>
                     </div>
                     <div class="gallery-info">
                         <h3>משרד עו״ד ונוטריון יגאל סופר</h3>
@@ -59,7 +67,11 @@
                     <div class="gallery-image">
                         <img src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg" 
                              alt="פעילות מקצועית" 
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                              onclick="openModal('https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg', 'פעילות מקצועית', 'פעילות המשרד')">
+                        <div class="placeholder-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: none; align-items: center; justify-content: center; color: white; font-size: 3em;">
+                            📋
+                        </div>
                     </div>
                     <div class="gallery-info">
                         <h3>פעילות מקצועית</h3>
@@ -71,7 +83,11 @@
                     <div class="gallery-image">
                         <img src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg" 
                              alt="אירועים וחגים" 
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                              onclick="openModal('https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg', 'אירועים וחגים', 'תמונות מאירועים')">
+                        <div class="placeholder-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); display: none; align-items: center; justify-content: center; color: white; font-size: 3em;">
+                            🎊
+                        </div>
                     </div>
                     <div class="gallery-info">
                         <h3>אירועים וחגים</h3>
@@ -136,9 +152,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     cursor: pointer;
     transition: transform 0.3s ease;
     border-radius: 8px;
+    display: block;
 }
 
 .gallery-image img:hover,
