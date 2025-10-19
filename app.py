@@ -604,15 +604,8 @@ def admin_email(message_id):
 
 @app.route('/all-articles')
 def all_articles():
-    # נסה להביא מאמרים מהפייסבוק
-    facebook_posts = get_facebook_posts()
-    
-    # אם יש פוסטים מהפייסבוק, נשתמש בהם
-    if facebook_posts:
-        return render_template('all_articles.html', facebook_posts=facebook_posts)
-    else:
-        # אחרת נשתמש במאמרים הסטטיים
-        return render_template('all_articles.html')
+    # מאמרים סטטיים
+    return render_template('all_articles.html')
 
 @app.errorhandler(404)
 def not_found(error):
