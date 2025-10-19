@@ -10,7 +10,7 @@ from datetime import datetime
 import sendgrid
 from sendgrid.helpers.mail import Mail, Email as SendGridEmail, To, Content
 from config import config
-# from facebook_integration import get_facebook_posts, save_facebook_images
+from facebook_integration import get_facebook_posts, save_facebook_images
 import mysql.connector
 from mysql.connector import Error
 import uuid
@@ -604,8 +604,21 @@ def admin_email(message_id):
 
 @app.route('/all-articles')
 def all_articles():
-    # מאמרים סטטיים
-    return render_template('all_articles.html')
+    try:
+        # נסה להביא פוסטים מהפייסבוק
+        facebook_posts = get_facebook_posts()
+        
+        # אם יש פוסטים מהפייסבוק, נשתמש בהם
+        if facebook_posts:
+            return render_template('all_articles.html', facebook_posts=facebook_posts)
+        else:
+            # אחרת נשתמש במאמרים הסטטיים
+            return render_template('all_articles.html')
+            
+    except Exception as e:
+        print(f"Error loading articles: {e}")
+        # במקרה של שגיאה, נשתמש במאמרים הסטטיים
+        return render_template('all_articles.html')
 
 @app.errorhandler(404)
 def not_found(error):
@@ -727,8 +740,27 @@ def blog_post(post_id):
 
 @app.route('/gallery')
 def gallery():
-    """Gallery page with Facebook embed"""
-    return render_template('gallery.html')
+    """Gallery page with Facebook images"""
+    try:
+        # Save Facebook images to gallery
+        gallery_images = save_facebook_images()
+        
+        # If no Facebook images, show placeholder
+        if not gallery_images:
+            gallery_images = [
+                {
+                    'filename': 'placeholder.jpg',
+                    'title': 'אין תמונות זמינות',
+                    'description': 'תמונות יופיעו כאן לאחר חיבור לפייסבוק'
+                }
+            ]
+        
+        return render_template('gallery.html', gallery_images=gallery_images)
+        
+    except Exception as e:
+        print(f"Error loading gallery: {e}")
+        # Return empty gallery on error
+        return render_template('gallery.html', gallery_images=[])
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
