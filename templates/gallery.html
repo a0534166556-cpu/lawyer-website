@@ -30,52 +30,52 @@
                 </div>
                 {% endfor %}
             {% else %}
-                <!-- תמונות לדוגמה -->
+                <!-- תמונות מפייסבוק -->
                 <div class="gallery-item">
                     <div class="gallery-image">
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop" 
-                             alt="משרד עורך דין" 
-                             onclick="openModal('office1.jpg', 'משרד עורך דין', 'תמונה מהמשרד שלנו')">
+                        <img src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg" 
+                             alt="חג שמח מיגאל סופר" 
+                             onclick="openModal('https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg', 'חג שמח מיגאל סופר', 'ברכות לחג מהמשרד')">
                     </div>
                     <div class="gallery-info">
-                        <h3>משרד עורך דין</h3>
-                        <p>תמונה מהמשרד שלנו</p>
+                        <h3>חג שמח מיגאל סופר</h3>
+                        <p>ברכות לחג מהמשרד</p>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <div class="gallery-image">
-                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&h=300&fit=crop" 
-                             alt="פגישה משפטית" 
-                             onclick="openModal('meeting1.jpg', 'פגישה משפטית', 'פגישה עם לקוחות')">
+                        <img src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg" 
+                             alt="משרד עו״ד ונוטריון יגאל סופר" 
+                             onclick="openModal('https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg', 'משרד עו״ד ונוטריון יגאל סופר', 'תמונה מהמשרד')">
                     </div>
                     <div class="gallery-info">
-                        <h3>פגישה משפטית</h3>
-                        <p>פגישה עם לקוחות</p>
+                        <h3>משרד עו״ד ונוטריון יגאל סופר</h3>
+                        <p>תמונה מהמשרד</p>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <div class="gallery-image">
-                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&h=300&fit=crop" 
-                             alt="חג שמח" 
-                             onclick="openModal('holiday1.jpg', 'חג שמח', 'ברכות לחג')">
+                        <img src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg" 
+                             alt="פעילות מקצועית" 
+                             onclick="openModal('https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg', 'פעילות מקצועית', 'פעילות המשרד')">
                     </div>
                     <div class="gallery-info">
-                        <h3>חג שמח</h3>
-                        <p>ברכות לחג</p>
+                        <h3>פעילות מקצועית</h3>
+                        <p>פעילות המשרד</p>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
                     <div class="gallery-image">
-                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&h=300&fit=crop" 
-                             alt="אירוע מקצועי" 
-                             onclick="openModal('event1.jpg', 'אירוע מקצועי', 'השתתפות באירוע')">
+                        <img src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg" 
+                             alt="אירועים וחגים" 
+                             onclick="openModal('https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg', 'אירועים וחגים', 'תמונות מאירועים')">
                     </div>
                     <div class="gallery-info">
-                        <h3>אירוע מקצועי</h3>
-                        <p>השתתפות באירוע</p>
+                        <h3>אירועים וחגים</h3>
+                        <p>תמונות מאירועים</p>
                     </div>
                 </div>
             {% endif %}
@@ -131,15 +131,18 @@
     height: 200px;
 }
 
-.gallery-image img {
+.gallery-image img,
+.placeholder-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     cursor: pointer;
     transition: transform 0.3s ease;
+    border-radius: 8px;
 }
 
-.gallery-image img:hover {
+.gallery-image img:hover,
+.placeholder-image:hover {
     transform: scale(1.05);
 }
 
