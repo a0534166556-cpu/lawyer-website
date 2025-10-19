@@ -145,6 +145,8 @@
     position: relative;
     overflow: hidden;
     height: 200px;
+    background: #f0f0f0;
+    border: 2px dashed #ccc;
 }
 
 .gallery-image img,
@@ -388,7 +390,21 @@
 </style>
 
 <script>
+// Debug: Check if images are loading
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Gallery loaded');
+    const images = document.querySelectorAll('.gallery-image img');
+    console.log('Found images:', images.length);
+    
+    images.forEach((img, index) => {
+        console.log(`Image ${index}:`, img.src);
+        img.addEventListener('load', () => console.log(`Image ${index} loaded successfully`));
+        img.addEventListener('error', () => console.log(`Image ${index} failed to load`));
+    });
+});
+
 function openModal(filename, title, description) {
+    console.log('Opening modal:', filename, title, description);
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
     const modalTitle = document.getElementById('modalTitle');
