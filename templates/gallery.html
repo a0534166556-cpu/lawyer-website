@@ -26,10 +26,31 @@
                 <div class="facebook-preview">
                     <h4>פוסט אחרון:</h4>
                     <div class="post-preview">
-                        <img src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg" alt="פוסט אחרון" onerror="this.style.display='none'">
+                        <div class="post-icon">📸</div>
                         <div class="post-text">
                             <p>חג שמח מיגאל סופר עורך דין ונוטריון!</p>
                             <small>6 באוקטובר 2024</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-features">
+                    <h4>מה תמצאו בגלריה שלנו:</h4>
+                    <div class="features-grid">
+                        <div class="feature">
+                            <span class="feature-icon">📷</span>
+                            <h5>תמונות מהמשרד</h5>
+                            <p>צילומים מהמשרד והפעילות שלנו</p>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🎉</span>
+                            <h5>אירועים וחגים</h5>
+                            <p>תמונות מאירועים וחגיגות</p>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">⚖️</span>
+                            <h5>פעילות מקצועית</h5>
+                            <p>תמונות מהפעילות המקצועית שלנו</p>
                         </div>
                     </div>
                 </div>
@@ -38,9 +59,6 @@
     </div>
 </section>
 
-<!-- Facebook SDK -->
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v18.0" nonce="YOUR_NONCE"></script>
 
 <style>
 .facebook-gallery {
@@ -120,11 +138,16 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.post-preview img {
+.post-icon {
     width: 80px;
     height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
+    background: #1877f2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: white;
 }
 
 .post-text p {
@@ -136,6 +159,54 @@
 .post-text small {
     color: #666;
     font-size: 0.9em;
+}
+
+.gallery-features {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.gallery-features h4 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.feature {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2.5em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.feature h5 {
+    color: #2c3e50;
+    margin: 10px 0 5px 0;
+    font-size: 1.1em;
+}
+
+.feature p {
+    color: #666;
+    font-size: 0.9em;
+    margin: 0;
 }
 </style>
 {% endblock %}
