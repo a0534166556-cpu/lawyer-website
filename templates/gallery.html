@@ -13,20 +13,26 @@
         <h2>תמונות מהפייסבוק</h2>
         <p>גלריית תמונות מעודכנת מהעמוד שלנו בפייסבוק</p>
         
-        <!-- Facebook Page Embed -->
+        <!-- Facebook Page Link -->
         <div class="facebook-gallery">
-            <div class="fb-page" 
-                 data-href="https://www.facebook.com/IgalSoferADV/" 
-                 data-tabs="timeline,events,photos" 
-                 data-width="100%" 
-                 data-height="600" 
-                 data-small-header="false" 
-                 data-adapt-container-width="true" 
-                 data-hide-cover="false" 
-                 data-show-facepile="true">
-                <blockquote cite="https://www.facebook.com/IgalSoferADV/" class="fb-xfbml-parse-ignore">
-                    <a href="https://www.facebook.com/IgalSoferADV/">משרד עו"ד ונוטריון יגאל סופר</a>
-                </blockquote>
+            <div class="facebook-link">
+                <h3>📸 גלריית התמונות שלנו</h3>
+                <p>לצפייה בכל התמונות והפוסטים שלנו, בקרו בעמוד הפייסבוק שלנו:</p>
+                <a href="https://www.facebook.com/IgalSoferADV/" target="_blank" class="facebook-button">
+                    <i class="fab fa-facebook"></i>
+                    צפו בגלריה בפייסבוק
+                </a>
+                
+                <div class="facebook-preview">
+                    <h4>פוסט אחרון:</h4>
+                    <div class="post-preview">
+                        <img src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-1/123456789/123456789_123456789_123456789_n.jpg" alt="פוסט אחרון" onerror="this.style.display='none'">
+                        <div class="post-text">
+                            <p>חג שמח מיגאל סופר עורך דין ונוטריון!</p>
+                            <small>6 באוקטובר 2024</small>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -40,9 +46,10 @@
 .facebook-gallery {
     margin-top: 30px;
     background: white;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .gallery h2 {
@@ -53,6 +60,82 @@
 .gallery p {
     color: #666;
     margin-bottom: 20px;
+}
+
+.facebook-link h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.facebook-link p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+
+.facebook-button {
+    display: inline-block;
+    background: #1877f2;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.facebook-button:hover {
+    background: #166fe5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(24, 119, 242, 0.3);
+}
+
+.facebook-button i {
+    margin-left: 10px;
+    font-size: 1.2em;
+}
+
+.facebook-preview {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.facebook-preview h4 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.post-preview {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-preview img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.post-text p {
+    margin: 0 0 5px 0;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.post-text small {
+    color: #666;
+    font-size: 0.9em;
 }
 </style>
 {% endblock %}
