@@ -340,6 +340,7 @@
     background: #f0f0f0;
 }
 
+/* בטל הסתרות גלובליות של lazy-load בתוך כרטיסי הבלוג */
 .blog-image img {
     width: 100%;
     height: 100%;
@@ -347,6 +348,12 @@
     object-position: center;
     display: block;
     transition: transform 0.3s ease;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: static !important;
+    z-index: auto !important;
+    transform: none !important;
+    filter: none !important;
 }
 
 .blog-card:hover .blog-image img {
