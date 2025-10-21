@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>משרד עו"ד ונוטריון יגאל סופר</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Flash Messages -->
+    <div class="flash-messages" id="flashMessages"></div>
+
     <!-- Header -->
     <header class="header">
         <div class="contact-bar">
@@ -36,65 +40,110 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-logo">
-                <img src="https://res.cloudinary.com/broadcust/image/upload/resources/cfooter_hb2.png" class="side-logo" alt="Broadcust Logo">
-            </div>
-            <div class="hero-text">
-                <h1>משרד עו"ד ונוטריון יגאל סופר</h1>
-                <p>שירותים משפטיים מקצועיים ואמינים</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">צור קשר</a>
-                    <a href="#services" class="btn btn-secondary">השירותים שלנו</a>
-                </div>
+    <!-- Call to Action -->
+    <section class="call-to-action">
+        <div class="container">
+            <div class="call-button-container">
+                <a href="tel:08-993-1666" class="call-button">
+                    📞 תתקשרו אלינו: 08-993-1666
+                </a>
+                <a href="tel:0522919225" class="call-button emergency">
+                    📱 למקרים דחופים: 052-291-9225
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="https://res.cloudinary.com/broadcust/image/upload/e_colorize,co_rgb:ffffff/resources/cfooter_hb2.png" alt="Broadcust Logo" class="side-logo">
+            </div>
+            <div class="hero-text">
+                <h1>משרד עו"ד ונוטריון יגאל סופר</h1>
+                <p>מתמחה בנזיקין, נזקי גוף, תאונות דרכים, ביטוח לאומי, מקרקעין ודיני עבודה</p>
+                <a href="#contact" class="cta-button">קבל ייעוץ מקצועי</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="about-preview" id="about">
         <div class="container">
             <h2>אודות המשרד</h2>
-            <p>משרד עו"ד ונוטריון יגאל סופר מספק שירותים משפטיים מקצועיים ואמינים בתחומים שונים של המשפט הישראלי.</p>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://res.cloudinary.com/broadcust/image/upload/c_limit,w_1080,h_1080/v1679232772/production/users/24862/gallery/a7ced65c-8497-49d7-9e2a-060ebadb8ab0__160063.jpg" alt="עו״ד יגאל סופר" class="profile-image">
+                </div>
+                <div class="about-text">
+                    <p>משרד עו"ד ונוטריון יגאל סופר ממוקם בנתיבות ומתמחה במגוון רחב של תחומי משפט. המשרד מספק שירותים משפטיים מקיפים עם דגש מיוחד על נזיקין ונזקי גוף.</p>
+                    <p>עו"ד יגאל סופר בעל ניסיון רב בייצוג נפגעי תאונות דרכים, תביעות נגד ביטוח לאומי וענייני מקרקעין ודיני עבודה. המשרד מחויב לספק ליווי אישי ומקצועי לכל לקוח.</p>
+                    <a href="#about" class="read-more-btn">קרא עוד עלינו</a>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>30+</h3>
+                        <p>שנות ניסיון</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
+    <section class="services" id="services">
         <div class="container">
             <h2>השירותים שלנו</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-gavel"></i>
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
                     <h3>דיני עבודה</h3>
-                    <p>תביעות ביטוח לאומי, תאונות עבודה ועוד</p>
+                    <p>תביעות ביטוח לאומי, תאונות עבודה, זכויות עובדים ועוד</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-home"></i>
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
                     <h3>דיני מקרקעין</h3>
-                    <p>רכישה, מכירה, שכירות ועוד</p>
+                    <p>רכישה, מכירה, שכירות, עסקאות נדל"ן ועוד</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-car"></i>
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
                     <h3>תאונות דרכים</h3>
-                    <p>תביעות נזיקין ותאונות דרכים</p>
+                    <p>תביעות נזיקין, תאונות דרכים, נזקי גוף ועוד</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section class="contact" id="contact">
         <div class="container">
             <h2>צור קשר</h2>
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>פרטי התקשרות</h3>
-                    <p><i class="fas fa-phone"></i> 08-993-1666</p>
-                    <p><i class="fas fa-mobile"></i> 052-291-9225</p>
-                    <p><i class="fas fa-envelope"></i> info@lawyer.co.il</p>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>08-993-1666</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-mobile"></i>
+                        <span>052-291-9225</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@lawyer.co.il</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>נתיבות, ישראל</span>
+                    </div>
                 </div>
                 <form id="contactForm" class="contact-form">
                     <div class="form-group">
@@ -134,4 +183,3 @@
     <script src="js/main.js"></script>
 </body>
 </html>
-
