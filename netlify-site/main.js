@@ -46,6 +46,42 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Gallery Modal Functions
+function openModal(imageSrc, title, description) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalCaption = document.getElementById('modalCaption');
+    
+    if (modal && modalImage && modalCaption) {
+        modal.style.display = 'block';
+        modalImage.src = imageSrc;
+        modalImage.alt = title;
+        modalCaption.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById('imageModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// Close modal when clicking outside the image
+window.addEventListener('click', (event) => {
+    const modal = document.getElementById('imageModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        closeModal();
+    }
+});
+
 // Enhanced Parallax effect
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
