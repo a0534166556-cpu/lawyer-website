@@ -1,84 +1,127 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אודות - משרד עו"ד ונוטריון יגאל סופר</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Flash Messages -->
+    <div class="flash-messages" id="flashMessages"></div>
 
-{% block content %}
-<section class="page-header">
-    <div class="container">
-        <h1>אודות המשרד</h1>
-        <p>משרד עו"ד ונוטריון יגאל סופר - ניסיון, מקצועיות ומחויבות</p>
-    </div>
-</section>
-
-<section class="about-detailed">
-    <div class="container">
-        <div class="about-content">
-            <div class="about-text">
-                <h2>על עו"ד יגאל סופר</h2>
-                <p>עו"ד יגאל סופר הוא עורך דין מוביל בתחום הנזיקין ונזקי הגוף, בעל ניסיון רב שנים בייצוג לקוחות בתביעות מורכבות. המשרד ממוקם בנתיבות ומספק שירותים משפטיים מקיפים לכל אזור הדרום.</p>
-                
-                <p>עו"ד סופר מתמחה במיוחד בייצוג נפגעי תאונות דרכים, תביעות נגד ביטוח לאומי, ענייני מקרקעין ודיני עבודה. המשרד ידוע בגישתו האישית והמקצועית, ומחויב להשיג את התוצאות הטובות ביותר עבור כל לקוח.</p>
-                
-                <h3>התמחויות עיקריות</h3>
-                <ul class="specializations">
-                    <li>נזיקין ונזקי גוף</li>
-                    <li>תאונות דרכים</li>
-                    <li>ביטוח לאומי</li>
-                    <li>מקרקעין</li>
-                    <li>דיני עבודה</li>
-                    <li>שירותי נוטריון</li>
+    <!-- Header -->
+    <header class="header">
+        <div class="contact-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span class="urgent">למקרים דחופים: 052-291-9225</span>
+                    <span class="phone">תתקשרו אלינו: 08-993-1666 <i class="fas fa-phone"></i></span>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>משרד עו"ד ונוטריון יגאל סופר</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">בית</a></li>
+                    <li><a href="about.html" class="nav-link active">אודות</a></li>
+                    <li><a href="services.html" class="nav-link">שירותים</a></li>
+                    <li><a href="gallery.html" class="nav-link">גלריה</a></li>
+                    <li><a href="contact.html" class="nav-link">יצירת קשר</a></li>
+                    <li><a href="admin.html" class="nav-link admin-link">פאנל מנהל</a></li>
                 </ul>
             </div>
-            
-            <div class="about-stats">
-                <div class="stat">
-                    <h3>30+</h3>
-                    <p>שנות ניסיון</p>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>אודות המשרד</h1>
+            <p>משרד עו"ד ונוטריון יגאל סופר - מקצועיות, ניסיון ואמינות</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://res.cloudinary.com/broadcust/image/upload/c_limit,w_1080,h_1080/v1679232772/production/users/24862/gallery/a7ced65c-8497-49d7-9e2a-060ebadb8ab0__160063.jpg" alt="עו״ד יגאל סופר" class="profile-image">
                 </div>
-                <div class="stat">
-                    <h3>24/6</h3>
-                    <p>זמינות ללקוחות</p>
+                <div class="about-text">
+                    <h2>עו"ד ונוטריון יגאל סופר</h2>
+                    <p>משרד עו"ד ונוטריון יגאל סופר ממוקם בנתיבות ומתמחה במגוון רחב של תחומי משפט. המשרד מספק שירותים משפטיים מקיפים עם דגש מיוחד על נזיקין ונזקי גוף.</p>
+                    <p>עו"ד יגאל סופר בעל ניסיון רב בייצוג נפגעי תאונות דרכים, תביעות נגד ביטוח לאומי וענייני מקרקעין ודיני עבודה. המשרד מחויב לספק ליווי אישי ומקצועי לכל לקוח.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>30+</h3>
+                            <p>שנות ניסיון</p>
+                        </div>
+                        <div class="stat">
+                            <h3>500+</h3>
+                            <p>לקוחות מרוצים</p>
+                        </div>
+                        <div class="stat">
+                            <h3>95%</h3>
+                            <p>שיעור הצלחה</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="values">
-    <div class="container">
-        <h2>הערכים שלנו</h2>
-        <div class="values-grid">
-            <div class="value-card">
-                <div class="value-icon">🎯</div>
-                <h3>מקצועיות</h3>
-                <p>אנו מספקים שירותים משפטיים ברמה הגבוהה ביותר, תוך שמירה על סטנדרטים מקצועיים גבוהים.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">🤝</div>
-                <h3>מחויבות אישית</h3>
-                <p>כל לקוח מקבל יחס אישי ומקצועי, תוך הבנה מעמיקה של צרכיו ויעדיו.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">⚡</div>
-                <h3>זמינות</h3>
-                <p>אנו זמינים עבור הלקוחות שלנו בכל עת, ומספקים מענה מהיר לכל שאלה או בעיה.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">🏆</div>
-                <h3>הצלחה</h3>
-                <p>אנו מתמקדים בהשגת התוצאות הטובות ביותר עבור הלקוחות שלנו בכל תיק ותיק.</p>
+    <!-- Services Preview -->
+    <section class="services-preview">
+        <div class="container">
+            <h2>תחומי התמחות</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>תאונות דרכים</h3>
+                    <p>ייצוג נפגעי תאונות דרכים, תביעות נזיקין ופיצויים</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>ביטוח לאומי</h3>
+                    <p>תביעות ביטוח לאומי, זכויות נכים ופיצויים</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>דיני מקרקעין</h3>
+                    <p>רכישה, מכירה, שכירות ועסקאות נדל"ן</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>דיני עבודה</h3>
+                    <p>זכויות עובדים, פיטורים ותביעות עבודה</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Testimonials section removed - will be added when needed -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 משרד עו"ד ונוטריון יגאל סופר. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
 
-<section class="contact-cta">
-    <div class="container">
-        <h2>רוצה לקבל ייעוץ?</h2>
-        <p>אנו כאן לעזור לך בכל שאלה משפטית. צור איתנו קשר לקבלת ייעוץ ראשוני מקצועי.</p>
-        <a href="{{ url_for('contact') }}" class="cta-button">קבל ייעוץ מקצועי</a>
-    </div>
-</section>
-{% endblock %}
-
-
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,120 +1,163 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שירותים - משרד עו"ד ונוטריון יגאל סופר</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Flash Messages -->
+    <div class="flash-messages" id="flashMessages"></div>
 
-{% block content %}
-<section class="page-header">
-    <div class="container">
-        <h1>תחומי התמחות</h1>
-        <p>מגוון רחב של שירותים משפטיים מקצועיים</p>
-    </div>
-</section>
-
-<section class="services-detailed">
-    <div class="container">
-        <div class="services-grid">
-            <div class="service-card-detailed">
-                <div class="service-icon">⚖️</div>
-                <h3>נזיקין</h3>
-                <p>ייצוג בתביעות נזיקין, נזקי רכוש, רשלנות רפואית ופיצויים</p>
-                <ul class="service-features">
-                    <li>תביעות רשלנות רפואית</li>
-                    <li>נזקי רכוש</li>
-                    <li>תביעות נזיקין כלליות</li>
-                    <li>פיצויים בגין נזקים</li>
-                </ul>
-            </div>
-            
-            <div class="service-card-detailed">
-                <div class="service-icon">🤕</div>
-                <h3>נזקי גוף</h3>
-                <p>ייצוג נפגעי תאונות עבודה, רשלנות ותביעות נזקי גוף</p>
-                <ul class="service-features">
-                    <li>תאונות עבודה</li>
-                    <li>נזקי גוף במקום ציבורי</li>
-                    <li>רשלנות רפואית</li>
-                    <li>תביעות נכות</li>
-                </ul>
-            </div>
-            
-            <div class="service-card-detailed">
-                <div class="service-icon">🚗</div>
-                <h3>תאונות דרכים</h3>
-                <p>ייצוג נפגעי תאונות דרכים וקבלת פיצויים מקסימליים מביטוח</p>
-                <ul class="service-features">
-                    <li>תאונות דרכים קלות וקשות</li>
-                    <li>תביעות נגד חברות ביטוח</li>
-                    <li>הערכת נזקים</li>
-                    <li>פיצויים מקסימליים</li>
-                </ul>
-            </div>
-            
-            <div class="service-card-detailed">
-                <div class="service-icon">🏛️</div>
-                <h3>ביטוח לאומי</h3>
-                <p>ייצוג בתביעות נכות, קצבאות, פנסיות ותביעות ביטוח לאומי</p>
-                <ul class="service-features">
-                    <li>תביעות נכות כללית</li>
-                    <li>קצבאות נכות מעבודה</li>
-                    <li>פנסיות נכות</li>
-                    <li>ערעורים על החלטות</li>
-                </ul>
-            </div>
-            
-            <div class="service-card-detailed">
-                <div class="service-icon">🏠</div>
-                <h3>מקרקעין</h3>
-                <p>רכישת נדלן, חוזי שכירות, סכסוכי שכנים וענייני מקרקעין</p>
-                <ul class="service-features">
-                    <li>רכישת ומכירת נדלן</li>
-                    <li>חוזי שכירות</li>
-                    <li>סכסוכי שכנים</li>
-                    <li>פינוי בינוי</li>
-                </ul>
-            </div>
-            
-            <div class="service-card-detailed">
-                <div class="service-icon">💼</div>
-                <h3>דיני עבודה</h3>
-                <p>פיטורין, זכויות עובדים, פנסיה, פיצויים וענייני עבודה</p>
-                <ul class="service-features">
-                    <li>פיטורין לא מוצדקים</li>
-                    <li>זכויות עובדים</li>
-                    <li>פנסיות ופיצויים</li>
-                    <li>הסכמי עבודה</li>
-                </ul>
-            </div>
-            
-            <div class="service-card-detailed">
-                <div class="service-icon">📝</div>
-                <h3>שירותי נוטריון</h3>
-                <p>אישור מסמכים, הסכמי ממון, צוואות ושירותי נוטריון</p>
-                <ul class="service-features">
-                    <li>אישור מסמכים</li>
-                    <li>הסכמי ממון</li>
-                    <li>צוואות</li>
-                    <li>חוזים משפטיים</li>
-                </ul>
-            </div>
-            
-            <div class="service-card-detailed">
-                <div class="service-icon">👨‍👩‍👧‍👦</div>
-                <h3>הסכמי ממון</h3>
-                <p>הכנת הסכמי ממון, צוואות וחוזי חיים משותפים</p>
-                <ul class="service-features">
-                    <li>הסכמי ממון לפני נישואין</li>
-                    <li>חוזי חיים משותפים</li>
-                    <li>צוואות הדדיות</li>
-                    <li>הסכמי גירושין</li>
-                </ul>
+    <!-- Header -->
+    <header class="header">
+        <div class="contact-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span class="urgent">למקרים דחופים: 052-291-9225</span>
+                    <span class="phone">תתקשרו אלינו: 08-993-1666 <i class="fas fa-phone"></i></span>
+                </div>
             </div>
         </div>
         
-        <div class="services-cta">
-            <h2>רוצה לקבל ייעוץ?</h2>
-            <p>אנו כאן לעזור לך בכל שאלה משפטית. צור איתנו קשר לקבלת ייעוץ ראשוני מקצועי.</p>
-            <a href="{{ url_for('contact') }}" class="cta-button">קבל ייעוץ מקצועי</a>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>משרד עו"ד ונוטריון יגאל סופר</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">בית</a></li>
+                    <li><a href="about.html" class="nav-link">אודות</a></li>
+                    <li><a href="services.html" class="nav-link active">שירותים</a></li>
+                    <li><a href="gallery.html" class="nav-link">גלריה</a></li>
+                    <li><a href="contact.html" class="nav-link">יצירת קשר</a></li>
+                    <li><a href="admin.html" class="nav-link admin-link">פאנל מנהל</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>השירותים שלנו</h1>
+            <p>שירותים משפטיים מקצועיים ואמינים בתחומים שונים</p>
         </div>
-    </div>
-</section>
-{% endblock %}
+    </section>
 
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>תאונות דרכים</h3>
+                    <p>ייצוג נפגעי תאונות דרכים, תביעות נזיקין ופיצויים. ניסיון רב בהגשת תביעות נגד חברות ביטוח ומימוש זכויות נפגעים.</p>
+                    <ul class="service-list">
+                        <li>תביעות נזיקין</li>
+                        <li>פיצויים לנפגעים</li>
+                        <li>ייצוג מול חברות ביטוח</li>
+                        <li>הליכים משפטיים</li>
+                    </ul>
+                </div>
 
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>ביטוח לאומי</h3>
+                    <p>תביעות ביטוח לאומי, זכויות נכים ופיצויים. ליווי מלא בהליכי הגשת תביעות וערעורים.</p>
+                    <ul class="service-list">
+                        <li>תביעות נכות</li>
+                        <li>זכויות נכים</li>
+                        <li>ערעורים</li>
+                        <li>ליווי בהליכים</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>דיני מקרקעין</h3>
+                    <p>רכישה, מכירה, שכירות ועסקאות נדל"ן. ייעוץ משפטי מקיף לכל עסקת נדל"ן.</p>
+                    <ul class="service-list">
+                        <li>רכישת נדל"ן</li>
+                        <li>מכירת נדל"ן</li>
+                        <li>חוזי שכירות</li>
+                        <li>ייעוץ משפטי</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>דיני עבודה</h3>
+                    <p>זכויות עובדים, פיטורים ותביעות עבודה. ייצוג עובדים ומעסיקים בהליכים משפטיים.</p>
+                    <ul class="service-list">
+                        <li>זכויות עובדים</li>
+                        <li>פיטורים</li>
+                        <li>תביעות עבודה</li>
+                        <li>פיצויים</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>נוטריון</h3>
+                    <p>שירותי נוטריון, אימות מסמכים והצהרות. שירות מהיר ואמין לכל הצרכים הנוטריוניים.</p>
+                    <ul class="service-list">
+                        <li>אימות מסמכים</li>
+                        <li>הצהרות</li>
+                        <li>תרגומים</li>
+                        <li>שירותים נוטריוניים</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>נזיקין</h3>
+                    <p>תביעות נזיקין, רשלנות רפואית ונזקי גוף. ייצוג מקצועי בכל סוגי תביעות הנזיקין.</p>
+                    <ul class="service-list">
+                        <li>רשלנות רפואית</li>
+                        <li>נזקי גוף</li>
+                        <li>תביעות נזיקין</li>
+                        <li>פיצויים</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>צריכים ייעוץ משפטי?</h2>
+            <p>התקשרו אלינו לקבלת ייעוץ ראשוני חינם</p>
+            <div class="cta-buttons">
+                <a href="tel:08-993-1666" class="btn btn-primary">התקשרו עכשיו</a>
+                <a href="contact.html" class="btn btn-secondary">צרו קשר</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 משרד עו"ד ונוטריון יגאל סופר. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

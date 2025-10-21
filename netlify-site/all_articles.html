@@ -1,407 +1,151 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פרסומים - משרד עו"ד ונוטריון יגאל סופר</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Flash Messages -->
+    <div class="flash-messages" id="flashMessages"></div>
 
-{% block content %}
-<section class="hero">
-    <div class="hero-content">
-        <div class="hero-logo">
-            <img src="https://res.cloudinary.com/broadcust/image/upload/resources/cfooter_hb2.png" class="side-logo" alt="Broadcust Logo">
-        </div>
-        <div class="hero-text">
-            <h1>כל הפרסומים והמאמרים</h1>
-            <p>משרד עו"ד ונוטריון יגאל סופר - כל המאמרים והפרסומים שלנו</p>
-        </div>
-    </div>
-</section>
-
-<section class="all-articles">
-    <div class="container">
-        <div class="articles-header">
-            <h2>כל הפרסומים והמאמרים</h2>
-            <p>מגוון רחב של מאמרים משפטיים מקצועיים</p>
-        </div>
-        
-        <!-- Facebook Page Link -->
-        <div class="facebook-section" style="grid-column: 1 / -1; margin-bottom: 40px; background: #f8f9fa; padding: 30px; border-radius: 15px; text-align: center;">
-            <h3 style="margin-bottom: 20px; color: var(--primary-color); font-size: 1.5rem;">עקבו אחרינו בפייסבוק</h3>
-            <p style="margin-bottom: 20px; color: #666;">קבלו עדכונים שוטפים על מאמרים וחדשות משפטיות</p>
-            
-            <a href="https://www.facebook.com/IgalSoferADV/" target="_blank" style="display: inline-block; background: #1877f2; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; font-size: 1.1em;">
-                <i class="fab fa-facebook" style="margin-left: 10px;"></i>
-                עקבו אחרינו בפייסבוק
-            </a>
-        </div>
-
-        <div class="blog-grid">
-            {% if facebook_posts %}
-                {% for post in facebook_posts %}
-                <a href="{{ post.link }}" class="blog-card" target="_blank">
-                    <div class="blog-image">
-                        <img src="{{ post.image }}" alt="{{ post.title }}">
-                    </div>
-                    <div class="blog-content">
-                        <h3>{{ post.title }}</h3>
-                        <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                        <p class="blog-date">פורסם בתאריך: {{ post.published }}</p>
-                    </div>
-                </a>
-                {% endfor %}
-            {% else %}
-            <a href="https://broadcust.co.il/deal/display/2674226" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2674226_5a0b11df-d529-4fe6-bb39-090351b805d1.jpg" alt="תאונת עבודה" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important; opacity: 1 !important; visibility: visible !important; position: relative !important; z-index: 10 !important;">
+    <!-- Header -->
+    <header class="header">
+        <div class="contact-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span class="urgent">למקרים דחופים: 052-291-9225</span>
+                    <span class="phone">תתקשרו אלינו: 08-993-1666 <i class="fas fa-phone"></i></span>
                 </div>
-                <div class="blog-content">
-                    <h3>תאונת עבודה מול הביטוח הלאומי</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 22/01/2025 11:15</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2744122" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2744122_1a3bef32-101b-42aa-989e-a4e978ffe8d6.jpg" alt="ייעוץ משפטי" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important; opacity: 1 !important; visibility: visible !important; position: relative !important; z-index: 10 !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>למי פונים כשיש נזילה מהשכנים?</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 28/01/2025 16:45</p>
-                </div>
-            </a>
-            
-            <!-- מאמרים חדשים -->
-            <a href="/blog/road-accidents" class="blog-card">
-                <div class="blog-image">
-                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=200&fit=crop" alt="תאונות דרכים" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important; opacity: 1 !important; visibility: visible !important; position: relative !important; z-index: 10 !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>כיצד להתמודד עם תאונת דרכים</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 15/02/2025 10:30</p>
-                </div>
-            </a>
-            
-            <a href="/blog/insurance-claims" class="blog-card">
-                <div class="blog-image">
-                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=200&fit=crop" alt="תביעות ביטוח" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important; opacity: 1 !important; visibility: visible !important; position: relative !important; z-index: 10 !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>תביעות ביטוח - המדריך המלא</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 20/02/2025 14:15</p>
-                </div>
-            </a>
-            
-            <a href="/blog/real-estate-law" class="blog-card">
-                <div class="blog-image">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=200&fit=crop" alt="דיני מקרקעין" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important; opacity: 1 !important; visibility: visible !important; position: relative !important; z-index: 10 !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>דיני מקרקעין - מה חשוב לדעת</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 25/02/2025 09:45</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2579435" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2579435_fc2e6ef8-1d68-4d3e-bae4-7b240aa7c933.png" alt="מאמר שלישי" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>תביעות כספיות בגין ליקויי בניה</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 15/01/2025 14:30</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2579417" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2579417_afe8f20e-cb7f-49af-be89-652cd93ddd74.png" alt="מאמר רביעי" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>כיצד נקבע גובה התשלום של מס רכישה</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 12/01/2025 10:00</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2579407" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2579407_b7576742-a070-4944-b664-7e6c4669aca3.png" alt="מאמר חמישי" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>מכרתם דירה? ייתכן ומגיע לכם החזר מס שבח</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 10/01/2025 16:45</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2579394" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2579394_e683d94d-92a3-42ae-af3d-2033c25052f1.png" alt="מאמר שישי" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>גיליתם בדירה ליקויי בנייה?</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 08/01/2025 09:30</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2541341" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2541341_81619519-2f12-499c-939a-1095108b3743.png" alt="מאמר שביעי" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>אל תהמר על הזכויות שמגיעות לך!</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 05/01/2025 14:15</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2541328" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2541328_f27fe7e5-ace2-4838-a2d9-aca0160c2e2c.png" alt="מאמר שמיני" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>תאונות דרכים - זכויותיכם המשפטיות</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 03/01/2025 11:20</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2541316" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2541316_b1f2b58c-ad87-4974-b222-2bba6281174f.png" alt="מאמר תשיעי" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>רשלנות רפואית - כיצד לתבוע?</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 01/01/2025 08:00</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2541306" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2495244_a40ff595-789c-4872-bb27-ba8ea8de694a.png" alt="מאמר עשירי" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>פיצויים בגין נזקי רכוש</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 29/12/2024 16:30</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2495244" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2495244_a40ff595-789c-4872-bb27-ba8ea8de694a.png" alt="מאמר 11" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>הסכמי ממון - חשיבות והגנה</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 27/12/2024 13:45</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2494754" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2494754_0d7c6025-dbbc-4e79-b073-e8d224d345a4.png" alt="מאמר 12" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>זכויות עובדים במקום העבודה</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 25/12/2024 10:15</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2453210" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2453210_527a8640-1c76-491d-ab97-8ac2de248b59.png" alt="מאמר 13" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>הליכי גירושין - המדריך המלא</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 23/12/2024 15:30</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2435837" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2435837_dc095e65-2af0-4d1d-b86c-96b9ba81d85d.png" alt="מאמר 14" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>תביעות ביטוח לאומי - מדריך מקיף</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 21/12/2024 12:00</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2437645" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2437645_b60d619a-e6c6-4864-ac96-a6dedb522c7d.png" alt="מאמר 15" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>ענייני מקרקעין - זכויות וחובות</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 19/12/2024 14:30</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2417590" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2417590_b238ee3f-3cb6-4dde-8e7c-607c77f4cd54.png" alt="מאמר 16" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>חוזי שכירות - מה חשוב לדעת</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 17/12/2024 11:15</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2401084" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2401084_9c73315f-e8c5-4f2e-aab6-48dad58466c7.png" alt="מאמר 17" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>סכסוכי שכנים - פתרונות משפטיים</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 15/12/2024 16:45</p>
-                </div>
-            </a>
-            אוקי בא נעששה את הפירסום ברינדר
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2366278_f33e72c1-7e47-49b2-8ca1-76fe98887b85.png" alt="מאמר 18" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>פיצויים בגין אובדן כושר עבודה</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 13/12/2024 09:30</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2353853" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2353853_dd731761-05d1-4fbf-b4a9-915852841b0e.png" alt="מאמר 19" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>הליכי פשיטת רגל - זכויות וחובות</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 11/12/2024 13:20</p>
-                </div>
-            </a>
-            
-            <a href="https://broadcust.co.il/deal/display/2329289" class="blog-card" target="_blank">
-                <div class="blog-image">
-                    <img src="https://res.cloudinary.com/broadcust/image/upload/w_400,h_180,c_fill,g_auto/production/users/24862/campaign/2329289_183a7d2c-f578-4596-8c6f-e1337b54fcff.png" alt="מאמר 20" style="display: block !important; width: 100% !important; height: 200px !important; object-fit: cover !important;">
-                </div>
-                <div class="blog-content">
-                    <h3>ענייני ירושה וצוואות</h3>
-                    <p class="blog-author">יגאל סופר עורך דין ונוטריון</p>
-                    <p class="blog-date">פורסם בתאריך: 09/12/2024 10:45</p>
-                </div>
-            </a>
-            {% endif %}
+            </div>
         </div>
         
-        <div class="back-to-home">
-            <a href="{{ url_for('index') }}" class="back-btn">חזרה לעמוד הראשי</a>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>משרד עו"ד ונוטריון יגאל סופר</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">בית</a></li>
+                    <li><a href="about.html" class="nav-link">אודות</a></li>
+                    <li><a href="services.html" class="nav-link">שירותים</a></li>
+                    <li><a href="gallery.html" class="nav-link">גלריה</a></li>
+                    <li><a href="contact.html" class="nav-link">יצירת קשר</a></li>
+                    <li><a href="admin.html" class="nav-link admin-link">פאנל מנהל</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>פרסומים וחדשות</h1>
+            <p>עדכונים משפטיים, חדשות ומידע חשוב מהמשרד</p>
         </div>
-    </div>
-</section>
+    </section>
 
-<style>
-/* CSS for all-articles page */
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-}
+    <!-- Articles Section -->
+    <section class="articles">
+        <div class="container">
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://res.cloudinary.com/broadcust/image/upload/c_limit,w_400,h_300/v1679232772/production/users/24862/gallery/a7ced65c-8497-49d7-9e2a-060ebadb8ab0__160063.jpg" alt="תאונות דרכים">
+                    </div>
+                    <div class="article-content">
+                        <h3>תאונות דרכים - זכויות הנפגע</h3>
+                        <p>כל מה שצריך לדעת על זכויות נפגעי תאונות דרכים, הליכי תביעה ופיצויים.</p>
+                        <div class="article-meta">
+                            <span class="date"><i class="fas fa-calendar"></i> 15 באוקטובר 2025</span>
+                            <a href="#" class="read-more">קרא עוד</a>
+                        </div>
+                    </div>
+                </article>
 
-.blog-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    text-decoration: none;
-    color: inherit;
-}
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://res.cloudinary.com/broadcust/image/upload/c_limit,w_400,h_300/v1679232772/production/users/24862/gallery/a7ced65c-8497-49d7-9e2a-060ebadb8ab0__160063.jpg" alt="ביטוח לאומי">
+                    </div>
+                    <div class="article-content">
+                        <h3>תביעות ביטוח לאומי</h3>
+                        <p>מדריך מקיף להגשת תביעות ביטוח לאומי ומימוש זכויות.</p>
+                        <div class="article-meta">
+                            <span class="date"><i class="fas fa-calendar"></i> 10 באוקטובר 2025</span>
+                            <a href="#" class="read-more">קרא עוד</a>
+                        </div>
+                    </div>
+                </article>
 
-.blog-card:hover {
-    transform: translateY(-5px);
-    text-decoration: none;
-    color: inherit;
-}
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://res.cloudinary.com/broadcust/image/upload/c_limit,w_400,h_300/v1679232772/production/users/24862/gallery/a7ced65c-8497-49d7-9e2a-060ebadb8ab0__160063.jpg" alt="דיני עבודה">
+                    </div>
+                    <div class="article-content">
+                        <h3>זכויות עובדים</h3>
+                        <p>כל מה שצריך לדעת על זכויות עובדים, פיטורים ופיצויים.</p>
+                        <div class="article-meta">
+                            <span class="date"><i class="fas fa-calendar"></i> 5 באוקטובר 2025</span>
+                            <a href="#" class="read-more">קרא עוד</a>
+                        </div>
+                    </div>
+                </article>
 
-.blog-image {
-    position: relative;
-    overflow: hidden;
-    height: 200px;
-    background: #f0f0f0;
-}
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://res.cloudinary.com/broadcust/image/upload/c_limit,w_400,h_300/v1679232772/production/users/24862/gallery/a7ced65c-8497-49d7-9e2a-060ebadb8ab0__160063.jpg" alt="דיני מקרקעין">
+                    </div>
+                    <div class="article-content">
+                        <h3>עסקאות מקרקעין</h3>
+                        <p>מדריך לרכישה ומכירה של נדל"ן, זכויות וחובות.</p>
+                        <div class="article-meta">
+                            <span class="date"><i class="fas fa-calendar"></i> 1 באוקטובר 2025</span>
+                            <a href="#" class="read-more">קרא עוד</a>
+                        </div>
+                    </div>
+                </article>
 
-/* בטל הסתרות גלובליות של lazy-load בתוך כרטיסי הבלוג */
-.blog-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    transition: transform 0.3s ease;
-    opacity: 1 !important;
-    visibility: visible !important;
-    position: static !important;
-    z-index: auto !important;
-    transform: none !important;
-    filter: none !important;
-}
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://res.cloudinary.com/broadcust/image/upload/c_limit,w_400,h_300/v1679232772/production/users/24862/gallery/a7ced65c-8497-49d7-9e2a-060ebadb8ab0__160063.jpg" alt="נזיקין">
+                    </div>
+                    <div class="article-content">
+                        <h3>תביעות נזיקין</h3>
+                        <p>כל מה שצריך לדעת על תביעות נזיקין ופיצויים.</p>
+                        <div class="article-meta">
+                            <span class="date"><i class="fas fa-calendar"></i> 25 בספטמבר 2025</span>
+                            <a href="#" class="read-more">קרא עוד</a>
+                        </div>
+                    </div>
+                </article>
 
-.blog-card:hover .blog-image img {
-    transform: scale(1.05);
-}
+                <article class="article-card">
+                    <div class="article-image">
+                        <img src="https://res.cloudinary.com/broadcust/image/upload/c_limit,w_400,h_300/v1679232772/production/users/24862/gallery/a7ced65c-8497-49d7-9e2a-060ebadb8ab0__160063.jpg" alt="נוטריון">
+                    </div>
+                    <div class="article-content">
+                        <h3>שירותי נוטריון</h3>
+                        <p>כל מה שצריך לדעת על שירותי נוטריון ואימות מסמכים.</p>
+                        <div class="article-meta">
+                            <span class="date"><i class="fas fa-calendar"></i> 20 בספטמבר 2025</span>
+                            <a href="#" class="read-more">קרא עוד</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
-.blog-content {
-    padding: 20px;
-}
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 משרד עו"ד ונוטריון יגאל סופר. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
 
-.blog-content h3 {
-    margin: 0 0 10px 0;
-    color: #2c3e50;
-    font-size: 1.2em;
-    line-height: 1.4;
-}
-
-.blog-author {
-    color: #666;
-    font-size: 0.9em;
-    margin: 5px 0;
-}
-
-.blog-date {
-    color: #999;
-    font-size: 0.8em;
-    margin: 5px 0 0 0;
-}
-
-.back-to-home {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.back-btn {
-    display: inline-block;
-    background: var(--primary-color);
-    color: white;
-    padding: 12px 30px;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.back-btn:hover {
-    background: #c0392b;
-    transform: translateY(-2px);
-    text-decoration: none;
-    color: white;
-}
-</style>
-{% endblock %}
+    <script src="main.js"></script>
+</body>
+</html>
