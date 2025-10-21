@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פאנל מנהל - משרד עו"ד ונוטריון יגאל סופר</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 50px;
+        }
+        
+        .admin-header {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .messages-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .message-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .message-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .message-item:last-child {
+            border-bottom: none;
+        }
+        
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .message-info h3 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .message-meta {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .message-status {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .status-unread {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .status-read {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .message-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+        
+        .btn-call {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .btn-email {
+            background: #3498db;
+            color: white;
+        }
+        
+        .btn-mark-read {
+            background: #f39c12;
+            color: white;
+        }
+        
+        .btn-delete {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+        }
+        
+        .no-messages {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="contact-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span class="urgent">למקרים דחופים: 052-291-9225</span>
+                    <span class="phone">תתקשרו אלינו: 08-993-1666 <i class="fas fa-phone"></i></span>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>פאנל מנהל</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">חזרה לאתר</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>פאנל מנהל - הודעות</h1>
+            <p>ניהול הודעות מלקוחות</p>
+        </div>
+        
+        <div class="messages-container">
+            <div id="loading" class="loading">
+                <div class="loading"></div>
+                <p>טוען הודעות...</p>
+            </div>
+            
+            <div id="no-messages" class="no-messages" style="display: none;">
+                <i class="fas fa-inbox" style="font-size: 3rem; color: #ddd; margin-bottom: 20px;"></i>
+                <p>אין הודעות חדשות</p>
+            </div>
+            
+            <div id="messages-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // API Configuration
+        const API_BASE_URL = 'https://lawyer-api.onrender.com'; // Replace with your actual API URL
+        
+        // Load messages on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadMessages();
+        });
+        
+        // Load messages from API
+        async function loadMessages() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/messages`);
+                const result = await response.json();
+                
+                document.getElementById('loading').style.display = 'none';
+                
+                if (result.success && result.messages.length > 0) {
+                    displayMessages(result.messages);
+                } else {
+                    document.getElementById('no-messages').style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error loading messages:', error);
+                document.getElementById('loading').innerHTML = '<p>שגיאה בטעינת ההודעות</p>';
+            }
+        }
+        
+        // Display messages
+        function displayMessages(messages) {
+            const messagesList = document.getElementById('messages-list');
+            messagesList.innerHTML = '';
+            
+            messages.forEach(message => {
+                const messageElement = document.createElement('div');
+                messageElement.className = 'message-item';
+                messageElement.innerHTML = `
+                    <div class="message-header">
+                        <div class="message-info">
+                            <h3>${message.name}</h3>
+                            <div class="message-meta">
+                                <span><i class="fas fa-phone"></i> ${message.phone}</span> |
+                                <span><i class="fas fa-envelope"></i> ${message.email}</span> |
+                                <span><i class="fas fa-calendar"></i> ${new Date(message.created_at).toLocaleDateString('he-IL')}</span>
+                            </div>
+                        </div>
+                        <span class="message-status status-${message.status}">
+                            ${message.status === 'unread' ? 'לא נקרא' : 'נקרא'}
+                        </span>
+                    </div>
+                    <div class="message-content">
+                        <p><strong>שירות:</strong> ${message.service}</p>
+                        <p><strong>הודעה:</strong> ${message.message}</p>
+                    </div>
+                    <div class="message-actions">
+                        <button class="btn btn-small btn-call" onclick="callClient('${message.phone}')">
+                            <i class="fas fa-phone"></i> התקשר
+                        </button>
+                        <button class="btn btn-small btn-email" onclick="emailClient('${message.email}')">
+                            <i class="fas fa-envelope"></i> שלח אימייל
+                        </button>
+                        ${message.status === 'unread' ? `
+                            <button class="btn btn-small btn-mark-read" onclick="markAsRead('${message.id}')">
+                                <i class="fas fa-check"></i> סמן כנקרא
+                            </button>
+                        ` : ''}
+                        <button class="btn btn-small btn-delete" onclick="deleteMessage('${message.id}')">
+                            <i class="fas fa-trash"></i> מחק
+                        </button>
+                    </div>
+                `;
+                messagesList.appendChild(messageElement);
+            });
+        }
+        
+        // Call client
+        function callClient(phone) {
+            if (navigator.userAgent.match(/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
+                window.location.href = `tel:${phone}`;
+            } else {
+                navigator.clipboard.writeText(phone).then(() => {
+                    alert(`מספר הטלפון ${phone} הועתק ללוח`);
+                });
+            }
+        }
+        
+        // Email client
+        function emailClient(email) {
+            window.location.href = `mailto:${email}?subject=תשובה מהמשרד&body=שלום,`;
+        }
+        
+        // Mark as read
+        async function markAsRead(messageId) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/message/${messageId}/status`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ status: 'read' })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    loadMessages(); // Reload messages
+                } else {
+                    alert('שגיאה בעדכון הסטטוס');
+                }
+            } catch (error) {
+                console.error('Error updating status:', error);
+                alert('שגיאה בעדכון הסטטוס');
+            }
+        }
+        
+        // Delete message
+        async function deleteMessage(messageId) {
+            if (confirm('האם אתה בטוח שברצונך למחוק הודעה זו?')) {
+                try {
+                    const response = await fetch(`${API_BASE_URL}/api/message/${messageId}`, {
+                        method: 'DELETE'
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        loadMessages(); // Reload messages
+                    } else {
+                        alert('שגיאה במחיקת ההודעה');
+                    }
+                } catch (error) {
+                    console.error('Error deleting message:', error);
+                    alert('שגיאה במחיקת ההודעה');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

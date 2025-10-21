@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משרד עו"ד ונוטריון יגאל סופר</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="contact-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span class="urgent">למקרים דחופים: 052-291-9225</span>
+                    <span class="phone">תתקשרו אלינו: 08-993-1666 <i class="fas fa-phone"></i></span>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>משרד עו"ד ונוטריון יגאל סופר</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link active">בית</a></li>
+                    <li><a href="#about" class="nav-link">אודות</a></li>
+                    <li><a href="#services" class="nav-link">שירותים</a></li>
+                    <li><a href="#gallery" class="nav-link">גלריה</a></li>
+                    <li><a href="#contact" class="nav-link">יצירת קשר</a></li>
+                    <li><a href="admin.html" class="nav-link admin-link">פאנל מנהל</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="https://res.cloudinary.com/broadcust/image/upload/resources/cfooter_hb2.png" class="side-logo" alt="Broadcust Logo">
+            </div>
+            <div class="hero-text">
+                <h1>משרד עו"ד ונוטריון יגאל סופר</h1>
+                <p>שירותים משפטיים מקצועיים ואמינים</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">צור קשר</a>
+                    <a href="#services" class="btn btn-secondary">השירותים שלנו</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>אודות המשרד</h2>
+            <p>משרד עו"ד ונוטריון יגאל סופר מספק שירותים משפטיים מקצועיים ואמינים בתחומים שונים של המשפט הישראלי.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>השירותים שלנו</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-gavel"></i>
+                    <h3>דיני עבודה</h3>
+                    <p>תביעות ביטוח לאומי, תאונות עבודה ועוד</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-home"></i>
+                    <h3>דיני מקרקעין</h3>
+                    <p>רכישה, מכירה, שכירות ועוד</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-car"></i>
+                    <h3>תאונות דרכים</h3>
+                    <p>תביעות נזיקין ותאונות דרכים</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>צור קשר</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>פרטי התקשרות</h3>
+                    <p><i class="fas fa-phone"></i> 08-993-1666</p>
+                    <p><i class="fas fa-mobile"></i> 052-291-9225</p>
+                    <p><i class="fas fa-envelope"></i> info@lawyer.co.il</p>
+                </div>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="שם מלא" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="טלפון" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="אימייל" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="service" name="service" required>
+                            <option value="">בחר שירות</option>
+                            <option value="דיני עבודה">דיני עבודה</option>
+                            <option value="דיני מקרקעין">דיני מקרקעין</option>
+                            <option value="תאונות דרכים">תאונות דרכים</option>
+                            <option value="אחר">אחר</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="הודעה" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">שלח הודעה</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 משרד עו"ד ונוטריון יגאל סופר. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
