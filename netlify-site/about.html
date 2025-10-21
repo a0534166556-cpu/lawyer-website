@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>אודות המשרד</h1>
+        <p>משרד עו"ד ונוטריון יגאל סופר - ניסיון, מקצועיות ומחויבות</p>
+    </div>
+</section>
+
+<section class="about-detailed">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>על עו"ד יגאל סופר</h2>
+                <p>עו"ד יגאל סופר הוא עורך דין מוביל בתחום הנזיקין ונזקי הגוף, בעל ניסיון רב שנים בייצוג לקוחות בתביעות מורכבות. המשרד ממוקם בנתיבות ומספק שירותים משפטיים מקיפים לכל אזור הדרום.</p>
+                
+                <p>עו"ד סופר מתמחה במיוחד בייצוג נפגעי תאונות דרכים, תביעות נגד ביטוח לאומי, ענייני מקרקעין ודיני עבודה. המשרד ידוע בגישתו האישית והמקצועית, ומחויב להשיג את התוצאות הטובות ביותר עבור כל לקוח.</p>
+                
+                <h3>התמחויות עיקריות</h3>
+                <ul class="specializations">
+                    <li>נזיקין ונזקי גוף</li>
+                    <li>תאונות דרכים</li>
+                    <li>ביטוח לאומי</li>
+                    <li>מקרקעין</li>
+                    <li>דיני עבודה</li>
+                    <li>שירותי נוטריון</li>
+                </ul>
+            </div>
+            
+            <div class="about-stats">
+                <div class="stat">
+                    <h3>30+</h3>
+                    <p>שנות ניסיון</p>
+                </div>
+                <div class="stat">
+                    <h3>24/6</h3>
+                    <p>זמינות ללקוחות</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="values">
+    <div class="container">
+        <h2>הערכים שלנו</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🎯</div>
+                <h3>מקצועיות</h3>
+                <p>אנו מספקים שירותים משפטיים ברמה הגבוהה ביותר, תוך שמירה על סטנדרטים מקצועיים גבוהים.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>מחויבות אישית</h3>
+                <p>כל לקוח מקבל יחס אישי ומקצועי, תוך הבנה מעמיקה של צרכיו ויעדיו.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">⚡</div>
+                <h3>זמינות</h3>
+                <p>אנו זמינים עבור הלקוחות שלנו בכל עת, ומספקים מענה מהיר לכל שאלה או בעיה.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🏆</div>
+                <h3>הצלחה</h3>
+                <p>אנו מתמקדים בהשגת התוצאות הטובות ביותר עבור הלקוחות שלנו בכל תיק ותיק.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials section removed - will be added when needed -->
+
+<section class="contact-cta">
+    <div class="container">
+        <h2>רוצה לקבל ייעוץ?</h2>
+        <p>אנו כאן לעזור לך בכל שאלה משפטית. צור איתנו קשר לקבלת ייעוץ ראשוני מקצועי.</p>
+        <a href="{{ url_for('contact') }}" class="cta-button">קבל ייעוץ מקצועי</a>
+    </div>
+</section>
+{% endblock %}
+
+

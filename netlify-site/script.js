@@ -1,5 +1,5 @@
 // API Configuration
-const API_BASE_URL = 'https://lawyer-api.onrender.com'; // Replace with your actual API URL
+const API_BASE_URL = 'https://web-production-xxxx.up.railway.app'; // Replace with your actual API URL
 
 // Contact Form Handler
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
@@ -71,3 +71,4 @@ window.addEventListener('scroll', function() {
         }
     });
 });
+

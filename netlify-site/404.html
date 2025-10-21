@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}404 - עמוד לא נמצא | משרד עו״ד ונוטריון יגאל סופר{% endblock %}
+
+{% block content %}
+<section class="error-page">
+    <div class="container">
+        <div class="error-content">
+            <div class="error-icon">
+                <span>404</span>
+            </div>
+            <h1>עמוד לא נמצא</h1>
+            <p>מצטערים, העמוד שחיפשת לא קיים או הועבר למיקום אחר.</p>
+            <div class="error-actions">
+                <a href="{{ url_for('index') }}" class="btn-primary">חזרה לעמוד הראשי</a>
+                <a href="{{ url_for('contact') }}" class="btn-secondary">צור קשר</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.error-page {
+    padding: 100px 0;
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.error-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.error-icon {
+    font-size: 8rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.error-content h1 {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.error-content p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.error-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--secondary-color);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .error-icon {
+        font-size: 6rem;
+    }
+    
+    .error-content h1 {
+        font-size: 2rem;
+    }
+    
+    .error-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 200px;
+    }
+}
+</style>
+{% endblock %}

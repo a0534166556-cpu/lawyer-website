@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>יצירת קשר</h1>
+        <p>אנו כאן לעזור לך. צור איתנו קשר לקבלת ייעוץ משפטי מקצועי</p>
+    </div>
+</section>
+
+<section class="contact">
+    <div class="container">
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>פרטי התקשרות</h3>
+                <div class="contact-item">
+                    <strong>טלפון:</strong>
+                    <span>08-993-1666</span>
+                </div>
+                <div class="contact-item">
+                    <strong>אימייל:</strong>
+                    <span>galsofer6@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <strong>כתובת:</strong>
+                    <span>בעלי המלאכה 205, נתיבות</span>
+                </div>
+                <div class="contact-item">
+                    <strong>אתר:</strong>
+                    <span>lawyer-website-6bxb.onrender.com</span>
+                </div>
+                <div class="contact-item">
+                    <strong>שעות פעילות:</strong>
+                    <span>א'-ה' 9:00-18:00</span>
+                </div>
+                
+                <div class="office-hours">
+                    <h4>שעות פעילות מפורטות</h4>
+                    <div class="hours-list">
+                        <div class="hour-item">
+                            <span>ראשון - חמישי:</span>
+                            <span>9:00 - 18:00</span>
+                        </div>
+                        <div class="hour-item">
+                            <span>שישי:</span>
+                            <span>9:00 - 13:00</span>
+                        </div>
+                        <div class="hour-item">
+                            <span>שבת:</span>
+                            <span>סגור</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>שלח הודעה</h3>
+                
+                <!-- Flash messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="flash-message {{ category }}" style="background: {% if category == 'success' %}#d4edda; color: #155724; border: 1px solid #c3e6cb;{% else %}#f8d7da; color: #721c24; border: 1px solid #f5c6cb;{% endif %}; padding: 15px; margin-bottom: 20px; border-radius: 5px; text-align: center;">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                
+                <!-- General form validation error -->
+                {% if not form.validate_on_submit() and request.method == 'POST' %}
+                    <div class="flash-message error" style="background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 15px; margin-bottom: 20px; border-radius: 5px; text-align: center;">
+                        ⚠️ יש למלא את כל השדות הדרושים בצורה נכונה
+                    </div>
+                {% endif %}
+                
+                <form method="POST" action="{{ url_for('contact') }}">
+                    {{ form.hidden_tag() }}
+                    
+                    <div class="form-group">
+                        {{ form.name(class="form-control", placeholder="שם מלא") }}
+                        {% if form.name.errors %}
+                            <div class="form-errors">
+                                {% for error in form.name.errors %}
+                                    <span class="error">⚠️ {{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.phone(class="form-control", placeholder="טלפון") }}
+                        {% if form.phone.errors %}
+                            <div class="form-errors">
+                                {% for error in form.phone.errors %}
+                                    <span class="error">⚠️ {{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.email(class="form-control", placeholder="אימייל") }}
+                        {% if form.email.errors %}
+                            <div class="form-errors">
+                                {% for error in form.email.errors %}
+                                    <span class="error">⚠️ {{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.service(class="form-control") }}
+                        {% if form.service.errors %}
+                            <div class="form-errors">
+                                {% for error in form.service.errors %}
+                                    <span class="error">⚠️ {{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.message(class="form-control", placeholder="תיאור קצר של המקרה", rows="5") }}
+                        {% if form.message.errors %}
+                            <div class="form-errors">
+                                {% for error in form.message.errors %}
+                                    <span class="error">⚠️ {{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.submit(class="btn-submit") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="map-section">
+    <div class="container">
+        <h2>איך להגיע אלינו</h2>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.123456789!2d34.5968!3d31.4142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502a7b9c8c8c8c9%3A0x1234567890abcdef!2z15vXnNeq15jXqSDXqNee15nXp9eQ15zXmdeqINeU15fXmdeV15nXqQ!5e0!3m2!1she!2sil!4v1699123456789!5m2!1she!2sil" 
+                width="100%" 
+                height="400" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <div class="navigation-buttons">
+            <a href="https://waze.com/ul?q=בעלי%20המלאכה%20205,%20נתיבות" target="_blank" class="waze-button">
+                <span class="waze-icon">🚗</span>
+                <span>נווט עם וייז</span>
+            </a>
+            <a href="https://maps.google.com/?q=בעלי המלאכה 205, נתיבות" target="_blank" class="google-maps-button">
+                <span class="maps-icon">🗺️</span>
+                <span>פתח ב-Google Maps</span>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Yigal Sofer - Lawyer & Notary | משרד עו"ד ונוטריון יגאל סופר{% endblock %}</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>משרד עו"ד ונוטריון יגאל סופר</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="{{ url_for('index') }}" {% if request.endpoint == 'index' %}class="active"{% endif %}>בית</a></li>
+                    <li><a href="{{ url_for('about') }}" {% if request.endpoint == 'about' %}class="active"{% endif %}>אודות</a></li>
+                    <li><a href="{{ url_for('services') }}" {% if request.endpoint == 'services' %}class="active"{% endif %}>שירותים</a></li>
+                    <li><a href="{{ url_for('gallery') }}" {% if request.endpoint == 'gallery' %}class="active"{% endif %}>גלריה</a></li>
+                    <li><a href="{{ url_for('contact') }}" {% if request.endpoint == 'contact' %}class="active"{% endif %}>יצירת קשר</a></li>
+                    <li><a href="{{ url_for('admin_login') }}" {% if request.endpoint == 'admin' or request.endpoint == 'admin_login' %}class="active"{% endif %} style="background: #e74c3c; color: white; border-radius: 5px; padding: 8px 15px;">פאנל מנהל</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash-message flash-{{ category }}">
+                        <span>{{ message }}</span>
+                        <button onclick="this.parentElement.remove()">&times;</button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>משרד עו"ד ונוטריון יגאל סופר</h3>
+                    <p>מתמחה בנזיקין, נזקי גוף, תאונות דרכים, ביטוח לאומי, מקרקעין ודיני עבודה</p>
+                </div>
+                <div class="footer-section">
+                    <h4>פרטי התקשרות</h4>
+                    <p>📞 08-993-1666</p>
+                    <p>✉️ galsofer6@gmail.com</p>
+                    <p>📍 בעלי המלאכה 205, נתיבות</p>
+                    <a href="https://maps.google.com/?q=בעלי המלאכה 205, נתיבות" target="_blank" style="color: #3498db; text-decoration: none;">🗺️ צפה במפה</a>
+                </div>
+                <div class="footer-section">
+                    <h4>שעות פעילות</h4>
+                    <p>א' - ה': 9:00 - 18:00</p>
+                    <p>שישי: 9:00 - 13:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 משרד עו"ד ונוטריון יגאל סופר. כל הזכויות שמורות.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
